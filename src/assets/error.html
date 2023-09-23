@@ -20,6 +20,10 @@
             min-height: 100vh;
         }
 
+        .company-logo {
+            width: 200px; /* Ajusta el tamaño de la imagen según tus necesidades */
+        }
+
         .error-code {
             font-size: 3rem;
             font-weight: bold;
@@ -29,12 +33,42 @@
         .error-message {
             font-size: 1.25rem;
         }
+
+        .close-button {
+            display: none;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #4a90e2;
+            color: white;
+            cursor: pointer;
+            font-size: 1.25rem;
+            border: none;
+        }
     </style>
 </head>
 <body>
     <div class="container">
+        <img src="res/drawable/vetiquetas.png" alt="Logo de la empresa" class="company-logo">
         <div class="error-code">503</div>
         <div class="error-message">No se puede continuar sin una conexión a internet.</div>
+        <button class="close-button" onclick="closeApp()">Cerrar App</button>
     </div>
+
+    <script>
+        // Función para cerrar la aplicación
+        function closeApp() {
+            if (window.cordova && window.cordova.plugins && window.cordova.plugins.exitApp) {
+                window.cordova.plugins.exitApp();
+            } else {
+                alert('La aplicación se cerrará manualmente.');
+            }
+        }
+
+        // Mostrar el botón para cerrar después de 2 segundos
+        setTimeout(function() {
+            var closeButton = document.querySelector('.close-button');
+            closeButton.style.display = 'block';
+        }, 2000);
+    </script>
 </body>
 </html>
