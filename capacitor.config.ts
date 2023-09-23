@@ -6,7 +6,13 @@ const config: CapacitorConfig = {
   webDir: 'www',
   server: {
     androidScheme: 'https'
-  }
+  },
+  plugins: {
+    Network: {
+      appId: 'io.ionic.starter'
+    }
+  },
+  cordova: {},
 };
 
 export default config;
