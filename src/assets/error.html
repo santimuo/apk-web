@@ -34,6 +34,10 @@
             font-size: 1.25rem;
         }
 
+        .error-message2 {
+            font-size: 1.00rem;
+        }
+
         .close-button {
             display: none;
             margin-top: 20px;
@@ -48,19 +52,18 @@
 </head>
 <body>
     <div class="container">
-        <img src="res/drawable/vetiquetas.png" alt="Logo de la empresa" class="company-logo">
+        <img src="vetiquetas.png" alt="Logo de la empresa" class="company-logo">
         <div class="error-code">503</div>
         <div class="error-message">No se puede continuar sin una conexión a internet.</div>
-        <button class="close-button" onclick="closeApp()">Cerrar App</button>
+        <div class="error-message2">Por favor cerrar la aplicacion e intentar nuevamente</div>
+        <button class="close-button" onclick="closeApp()">Cerrar</button>
     </div>
 
     <script>
         // Función para cerrar la aplicación
         function closeApp() {
-            if (window.cordova && window.cordova.plugins && window.cordova.plugins.exitApp) {
-                window.cordova.plugins.exitApp();
-            } else {
-                alert('La aplicación se cerrará manualmente.');
+            if (window.Capacitor && window.Capacitor.Plugins.App) {
+                Capacitor.Plugins.App.exitApp();
             }
         }
 
@@ -68,7 +71,7 @@
         setTimeout(function() {
             var closeButton = document.querySelector('.close-button');
             closeButton.style.display = 'block';
-        }, 2000);
+        }, 500);
     </script>
 </body>
 </html>

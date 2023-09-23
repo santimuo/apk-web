@@ -10,7 +10,8 @@ const config: CapacitorConfig = {
   plugins: {
     Network: {
       appId: 'io.ionic.starter'
-    }
+    },
+    App: {}
   },
   cordova: {},
 };
