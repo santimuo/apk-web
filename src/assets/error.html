@@ -21,7 +21,7 @@
         }
 
         .company-logo {
-            width: 200px; /* Ajusta el tamaño de la imagen según tus necesidades */
+            width: 200px; 
         }
 
         .error-code {
@@ -59,14 +59,14 @@
     </div>
 
     <script>
-        // Función para cerrar la aplicación
+        // funcion para cerrar la app si falla
         function closeApp() {
             if (window.Capacitor && window.Capacitor.Plugins.App) {
                 Capacitor.Plugins.App.exitApp();
             }
         }
 
-        // Mostrar el botón para cerrar después de 2 segundos
+        // aparece boton para cerrar la app
         setTimeout(function() {
             var closeButton = document.querySelector('.close-button');
             closeButton.style.display = 'block';

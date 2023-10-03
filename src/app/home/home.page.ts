@@ -12,11 +12,11 @@ export class HomePage implements OnInit {
   constructor(private browser: InAppBrowser, private network: Network) {}
 
   ngOnInit(): void {
-    // Verifica la conexión de red
+    // Verifico red para ver si cargo o no la web
     const isConnected = this.network.type !== 'none';
 
     if (isConnected) {
-      // Si hay conexión, abre la página principal
+      // Si la conexion esta ok, cargo la web
       const browserInstance = this.browser.create(
         'https://cafeceros.com',
         '_self',
@@ -26,7 +26,7 @@ export class HomePage implements OnInit {
         App.exitApp();
       });
     } else {
-      // Si no hay conexión, se redirige automáticamente a la página de error.html
+      // Si no hay conexión redirijo a error.html
       window.location.href = 'assets/error.html';
     }
   }
